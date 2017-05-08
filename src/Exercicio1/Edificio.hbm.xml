@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Exercicio1">
+	<class name="Edificio" table="EDIFICIO">
+		<id name="id" column="EDI_ID" type="integer">
+			<generator class="increment"/>
+		</id>
+		<property name="nome" column="EDI_NOME" type="string" />
+		<property name="endereco" column="EDI_END" type="string"/>
+		<property name="estrelas" column="EDI_EST" type="integer"/>
+		<many-to-one name="sindico" column="EDI_SIN" class="Sindico"/>		
+		<bag name="apartamentos" table="APARTAMENTO">
+			<key column="APA_EDI" />
+			<one-to-many class="Apartamento"/>
+		</bag>
+	</class>
+</hibernate-mapping>

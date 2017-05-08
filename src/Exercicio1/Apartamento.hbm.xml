@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Exercicio1">
+	<class name="Apartamento" table="APARTAMENTO">
+		<id name="id" column="APA_ID" type="integer">
+			<generator class="increment"/>
+		</id>
+		<property name="medida" column="APA_MED" type="string" />
+		<property name="financiado" column="APA_FIN" type="boolean"/>
+		<property name="valorCondominio" column="APA_VAL" type="java.math.BigDecimal"/>
+		<property name="numero" column="APA_NUM" type="string"/>
+		<property name="piso" column="APA_PIS" type="string"/>
+		<many-to-one name="edificio" column="APA_EDI" class="Edificio"/>		
+		<bag name="comodos" table="COMODO">
+			<key column="COM_APA" />
+			<one-to-many class="Comodo"/>
+		</bag>
+	</class>
+</hibernate-mapping>

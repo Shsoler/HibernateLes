@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Exercicio1">
+	<class name="Sindico" table="SINDICO">
+		<id name="id" column="SIN_ID" type="integer">
+			<generator class="increment"/>
+		</id>
+		<property name="nome" column="SIN_NOME" type="string" />
+		<bag name="edificios" table="EDIFICIO">
+			<key column="EDI_SIN" />
+			<one-to-many class="Edificio"/>
+		</bag>
+	</class>
+</hibernate-mapping>

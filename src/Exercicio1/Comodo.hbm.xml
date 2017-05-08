@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Exercicio1">
+	<class name="Comodo" table="COMODO">
+		<id name="id" column="COM_ID" type="integer">
+			<generator class="increment"/>
+		</id>
+		<property name="descricao" column="COM_DESC" type="string" />
+		<property name="medida" column="COM_MED" type="string"/>
+		<property name="possuiJanela" column="COM_JAN" type="boolean"/>
+		<many-to-one name="apartamento" column="COM_APA" class="Apartamento"/>		
+	</class>
+</hibernate-mapping>
